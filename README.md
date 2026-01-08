@@ -2,8 +2,8 @@
 
 ![Alt text](/terraform_ec2.png)
 
-This project demonstrates how to design, deploy, and secure a production-grade web application on AWS using Terraform.
-The primary focus is security-first cloud architecture, applying defense-in-depth principles across networking, identity, data, and access layers.
+## This project demonstrates how to design, deploy, and secure a production-grade web application on AWS using Terraform.
+## The primary focus is security-first cloud architecture, applying defense-in-depth principles across networking, identity, data, and access layers.
 
 - All infrastructure is provisioned using Infrastructure as Code (IaC) to ensure repeatability, auditability, and compliance.
 

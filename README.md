@@ -292,7 +292,7 @@ Verify HTTPS-only access via custom domain
 ---
 
 
-# Summary
+# Conclusion
 
 This project highlights secure cloud infrastructure design on AWS using Terraform, emphasizing defense in depth, least privilege, and automation.
 It reflects real-world security patterns used in enterprise and regulated environments.

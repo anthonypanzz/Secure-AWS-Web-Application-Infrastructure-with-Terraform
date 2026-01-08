@@ -1,5 +1,7 @@
 # Secure AWS Web Application Infrastructure with Terraform
 
+![Alt text](/cognito1.jpg)
+
 This project demonstrates how to design, deploy, and secure a production-grade web application on AWS using Terraform.
 The primary focus is security-first cloud architecture, applying defense-in-depth principles across networking, identity, data, and access layers.
 

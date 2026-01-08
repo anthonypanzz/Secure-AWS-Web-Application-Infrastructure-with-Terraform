@@ -3,23 +3,23 @@
 This project demonstrates how to design, deploy, and secure a production-grade web application on AWS using Terraform.
 The primary focus is security-first cloud architecture, applying defense-in-depth principles across networking, identity, data, and access layers.
 
-All infrastructure is provisioned using Infrastructure as Code (IaC) to ensure repeatability, auditability, and compliance.
+- All infrastructure is provisioned using Infrastructure as Code (IaC) to ensure repeatability, auditability, and compliance.
 
-Security-First Architecture Overview
+- Security-First Architecture Overview
 
-This infrastructure is built around zero-trust and least-privilege principles:
+- This infrastructure is built around zero-trust and least-privilege principles:
 
-Private-by-default networking
+- Private-by-default networking
 
-No direct SSH exposure
+- No direct SSH exposure
 
-Secrets never hardcoded
+- Secrets never hardcoded
 
-Encrypted traffic end-to-end
+- Encrypted traffic end-to-end
 
-Controlled IAM permissions
+- Controlled IAM permissions
 
-Auditable, version-controlled infrastructure
+- Auditable, version-controlled infrastructure
 
 ## High-Level Architecture:
 
@@ -47,7 +47,7 @@ Auditable, version-controlled infrastructure
 
 
 ## Security-Focused Implementation Breakdown:
-1️⃣ Provider Configuration
+1️⃣ **Provider Configuration**
 
 Security Objective: Controlled AWS access and consistency
 
@@ -59,7 +59,7 @@ Default resource tagging for ownership and auditing
 
 ---
 
-2️⃣ Remote Backend (State Security)
+2️⃣ **Remote Backend (State Security)**
 
 Security Objective: Protect Terraform state
 
@@ -71,7 +71,7 @@ Prevents local state leaks and enables team collaboration
 
 ---
 
-3️⃣ Network Segmentation (VPC)
+3️⃣ **Network Segmentation (VPC)**
 
 Security Objective: Network isolation and blast-radius reduction
 
@@ -87,7 +87,7 @@ Private data subnets for databases
 
 ---
 
-4️⃣ NAT Gateway
+4️⃣ **NAT Gateway**
 
 Security Objective: Controlled outbound access
 
@@ -99,7 +99,7 @@ Prevents direct internet access to application and database tiers
 
 ---
 
-5️⃣ Security Groups (Layered Firewalling)
+5️⃣ **Security Groups (Layered Firewalling)**
 
 Security Objective: Least-privilege network access
 
@@ -121,7 +121,7 @@ No wide-open 0.0.0.0/0 access to private resources
 
 ---
 
-6️⃣ Secure Instance Access (EICE)
+6️⃣ **Secure Instance Access (EICE)**
 
 Security Objective: Eliminate bastion hosts and exposed SSH
 
@@ -133,7 +133,7 @@ Access controlled via IAM and security groups
 
 ---
 
-7️⃣ Secrets Management
+7️⃣ **Secrets Management**
 
 Security Objective: Protect sensitive credentials
 
@@ -148,7 +148,7 @@ No plaintext secrets in code or state files
 ---
 
 
-8️⃣ RDS (MySQL)
+8️⃣ **RDS (MySQL)**
 
 Security Objective: Secure data storage
 
@@ -163,7 +163,7 @@ Managed backups and patching
 ---
 
 
-9️⃣ IAM Roles & Instance Profiles
+9️⃣ **IAM Roles & Instance Profiles**
 
 Security Objective: Least-privilege access control
 
@@ -178,7 +178,7 @@ No static credentials on EC2 instances
 ---
 
 
-🔟 TLS & Certificate Management (ACM)
+🔟 **TLS & Certificate Management (ACM)**
 
 Security Objective: Encrypt data in transit
 
@@ -191,7 +191,7 @@ Automated certificate validation using for_each
 ---
 
 
-1️⃣1️⃣ Application Load Balancer
+1️⃣1️⃣ **Application Load Balancer**
 
 Security Objective: Secure traffic entry point
 
@@ -206,7 +206,7 @@ Health checks for availability and resilience
 ---
 
 
-1️⃣2️⃣ DNS Security (Route 53)
+1️⃣2️⃣ **DNS Security (Route 53)**
 
 Security Objective: Controlled traffic routing
 
@@ -217,7 +217,7 @@ No IP exposure
 ---
 
 
-1️⃣3️⃣ SNS Notifications
+1️⃣3️⃣ **SNS Notifications**
 
 Security Objective: Operational awareness
 
@@ -228,7 +228,7 @@ Email notifications for scaling activity
 ---
 
 
-1️⃣4️⃣ Auto Scaling Group
+1️⃣4️⃣ **Auto Scaling Group**
 
 Security Objective: Resilience and availability
 
@@ -243,7 +243,7 @@ ALB target group integration
 ---
 
 
-1️⃣5️⃣ Secure Data Migration
+1️⃣5️⃣ **Secure Data Migration**
 
 Security Objective: Controlled data access
 
@@ -258,7 +258,7 @@ Explicit dependency on RDS readiness
 ---
 
 
-1️⃣6️⃣ Outputs
+1️⃣6️⃣ **Outputs**
 
 Security Objective: Controlled information exposure
 
@@ -268,14 +268,14 @@ No secrets exposed
 
 Includes ALB DNS and application URL
 
-🚀 Deployment & Validation
+## Deployment & Validation:
 terraform fmt
 terraform validate
 terraform plan
 terraform apply
 
 
-Post-deployment:
+## Post-deployment:
 
 Confirm SNS email subscription
 

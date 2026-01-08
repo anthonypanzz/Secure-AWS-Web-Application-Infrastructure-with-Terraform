@@ -21,64 +21,32 @@ Controlled IAM permissions
 
 Auditable, version-controlled infrastructure
 
-🧱 High-Level Architecture
+## High-Level Architecture:
 
-Custom VPC with isolated public, application, and data subnet tiers
+- Custom VPC with isolated public, application, and data subnet tiers
 
-Application Load Balancer (ALB) with HTTPS enforced
+- Application Load Balancer (ALB) with HTTPS enforced
 
-Auto Scaling EC2 application servers in private subnets
+- Auto Scaling EC2 application servers in private subnets
 
-RDS MySQL in private data subnets
+- RDS MySQL in private data subnets
 
-Secrets Manager for credential storage
+- Secrets Manager for credential storage
 
-EC2 Instance Connect Endpoint (EICE) for secure access
+- EC2 Instance Connect Endpoint (EICE) for secure access
 
-ACM-managed TLS certificates
+- ACM-managed TLS certificates
 
-Route 53 DNS with ALB alias
+- Route 53 DNS with ALB alias
 
-SNS notifications for scaling events
+- SNS notifications for scaling events
 
-Remote Terraform state with locking
+- Remote Terraform state with locking
 
-🛠️ Technology Stack
+- Terraform modules for reusability, consistency, scalability, and collaboration
 
-Terraform
 
-AWS (VPC, EC2, RDS, IAM, ALB, ACM, Route 53, SNS)
-
-Secrets Manager
-
-Linux / Bash
-
-MySQL
-
-📂 Repository Structure
-.
-├── providers.tf
-├── backend.tf
-├── vpc.tf
-├── nat-gateway.tf
-├── security-groups.tf
-├── eice.tf
-├── secrets-manager.tf
-├── rds.tf
-├── iam-role.tf
-├── acm.tf
-├── alb.tf
-├── route53.tf
-├── sns.tf
-├── asg.tf
-├── data-migrate-server.tf
-├── outputs.tf
-├── templates/
-│   ├── user-data.sh.tpl
-│   └── migrate-data.sh.tpl
-└── README.md
-
-🔍 Security-Focused Implementation Breakdown
+## Security-Focused Implementation Breakdown:
 1️⃣ Provider Configuration
 
 Security Objective: Controlled AWS access and consistency
@@ -89,6 +57,8 @@ Provider version pinning to prevent breaking changes
 
 Default resource tagging for ownership and auditing
 
+---
+
 2️⃣ Remote Backend (State Security)
 
 Security Objective: Protect Terraform state
@@ -98,6 +68,8 @@ S3 backend for centralized state storage
 DynamoDB table for state locking (prevents race conditions)
 
 Prevents local state leaks and enables team collaboration
+
+---
 
 3️⃣ Network Segmentation (VPC)
 
@@ -113,6 +85,8 @@ Private application subnets (no public IPs)
 
 Private data subnets for databases
 
+---
+
 4️⃣ NAT Gateway
 
 Security Objective: Controlled outbound access
@@ -122,6 +96,8 @@ NAT Gateway placed in public subnet
 Private subnets route outbound traffic without inbound exposure
 
 Prevents direct internet access to application and database tiers
+
+---
 
 5️⃣ Security Groups (Layered Firewalling)
 
@@ -143,6 +119,8 @@ Explicit inbound and outbound rules
 
 No wide-open 0.0.0.0/0 access to private resources
 
+---
+
 6️⃣ Secure Instance Access (EICE)
 
 Security Objective: Eliminate bastion hosts and exposed SSH
@@ -152,6 +130,8 @@ EC2 Instance Connect Endpoint deployed in private subnet
 SSH access without public IPs
 
 Access controlled via IAM and security groups
+
+---
 
 7️⃣ Secrets Management
 
@@ -165,6 +145,9 @@ JSON secrets parsed securely using jsondecode()
 
 No plaintext secrets in code or state files
 
+---
+
+
 8️⃣ RDS (MySQL)
 
 Security Objective: Secure data storage
@@ -176,6 +159,9 @@ Credentials sourced from Secrets Manager
 Security group restricts access to application layer only
 
 Managed backups and patching
+
+---
+
 
 9️⃣ IAM Roles & Instance Profiles
 
@@ -189,6 +175,9 @@ S3 access via managed policy
 
 No static credentials on EC2 instances
 
+---
+
+
 🔟 TLS & Certificate Management (ACM)
 
 Security Objective: Encrypt data in transit
@@ -198,6 +187,9 @@ ACM-provisioned SSL/TLS certificates
 DNS validation via Route 53
 
 Automated certificate validation using for_each
+
+---
+
 
 1️⃣1️⃣ Application Load Balancer
 
@@ -211,6 +203,9 @@ TLS termination at ALB
 
 Health checks for availability and resilience
 
+---
+
+
 1️⃣2️⃣ DNS Security (Route 53)
 
 Security Objective: Controlled traffic routing
@@ -219,6 +214,9 @@ Alias A record pointing directly to ALB
 
 No IP exposure
 
+---
+
+
 1️⃣3️⃣ SNS Notifications
 
 Security Objective: Operational awareness
@@ -226,6 +224,9 @@ Security Objective: Operational awareness
 SNS topic for Auto Scaling events
 
 Email notifications for scaling activity
+
+---
+
 
 1️⃣4️⃣ Auto Scaling Group
 
@@ -239,6 +240,9 @@ User data scripts injected securely using templatefile()
 
 ALB target group integration
 
+---
+
+
 1️⃣5️⃣ Secure Data Migration
 
 Security Objective: Controlled data access
@@ -250,6 +254,9 @@ Short-lived access pattern
 Migration scripts parameterized securely
 
 Explicit dependency on RDS readiness
+
+---
+
 
 1️⃣6️⃣ Outputs
 
@@ -274,54 +281,10 @@ Confirm SNS email subscription
 
 Verify HTTPS-only access via custom domain
 
-🔐 Security & Terraform Concepts Demonstrated
-Terraform
+---
 
-Providers & version constraints
 
-Remote state with locking
-
-Data sources & locals
-
-Explicit dependencies (depends_on)
-
-Secure variable injection
-
-Output control
-
-Infrastructure lifecycle management
-
-AWS Security Practices
-
-Network segmentation
-
-Least-privilege IAM
-
-Secrets Manager integration
-
-Encrypted traffic (TLS)
-
-Private-only compute & databases
-
-No hardcoded credentials
-
-No public SSH access
-
-🌍 Real-World Security Use Cases
-
-Production-grade secure cloud architecture
-
-Compliance-friendly IaC workflows
-
-Repeatable environment builds
-
-Disaster recovery via code
-
-Auditable infrastructure changes
-
-Secure multi-environment deployments
-
-🏁 Summary
+# Summary
 
 This project highlights secure cloud infrastructure design on AWS using Terraform, emphasizing defense in depth, least privilege, and automation.
 It reflects real-world security patterns used in enterprise and regulated environments.

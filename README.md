@@ -277,10 +277,10 @@ No secrets exposed
 Includes ALB DNS and application URL
 
 ## Deployment & Validation:
-terraform fmt
-terraform validate
-terraform plan
-terraform apply
+- terraform fmt
+- terraform validate
+- terraform plan
+- terraform apply
 
 
 ## Post-deployment:

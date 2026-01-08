@@ -21,6 +21,9 @@ The primary focus is security-first cloud architecture, applying defense-in-dept
 
 - Auditable, version-controlled infrastructure
 
+---
+
+
 ## High-Level Architecture:
 
 - Custom VPC with isolated public, application, and data subnet tiers
@@ -44,6 +47,9 @@ The primary focus is security-first cloud architecture, applying defense-in-dept
 - Remote Terraform state with locking
 
 - Terraform modules for reusability, consistency, scalability, and collaboration
+
+
+---
 
 
 ## Security-Focused Implementation Breakdown:

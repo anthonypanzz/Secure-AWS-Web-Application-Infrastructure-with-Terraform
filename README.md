@@ -330,23 +330,6 @@ Explicit dependency on RDS readiness
 
 ---
 
-
-1️⃣6️⃣ **Outputs**
-
-Security Objective: Controlled information exposure
-
-Outputs limited to non-sensitive metadata
-
-No secrets exposed
-
-Includes ALB DNS and application URL
-
-<img width="879" height="419" alt="Screenshot 2026-01-08 203526" src="https://github.com/user-attachments/assets/df862678-ad8d-4312-a2a7-ed4a4a4c391b" />
-<img width="830" height="183" alt="Screenshot 2026-01-08 203823" src="https://github.com/user-attachments/assets/a851b2ab-05b7-4bc9-ba4c-91de5854ed6e" />
-
-
----
-
 ## Deployment & Validation:
 - terraform init
 - terraform plan

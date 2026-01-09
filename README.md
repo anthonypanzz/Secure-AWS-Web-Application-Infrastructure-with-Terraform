@@ -331,17 +331,13 @@ Includes ALB DNS and application URL
 ---
 
 ## Deployment & Validation:
-- terraform fmt
-- terraform validate
+- terraform init
 - terraform plan
 - terraform apply
 
+<img width="1479" height="584" alt="Screenshot 2026-01-08 205048" src="https://github.com/user-attachments/assets/ad1fc772-7dc1-43d2-bc11-01cade73b0d3" />
+<img width="1893" height="858" alt="Screenshot 2026-01-08 205810" src="https://github.com/user-attachments/assets/4205a447-f0e4-4699-af2b-c9f930962e7f" />
 
-## Post-deployment:
-
-Confirm SNS email subscription
-
-Verify HTTPS-only access via custom domain
 
 ---
 

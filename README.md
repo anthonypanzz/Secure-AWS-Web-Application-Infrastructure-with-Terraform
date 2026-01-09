@@ -172,6 +172,9 @@ JSON secrets parsed securely using jsondecode()
 
 No plaintext secrets in code or state files
 
+<img width="1279" height="596" alt="Screenshot 2026-01-08 203449" src="https://github.com/user-attachments/assets/33186e31-3e3e-4932-8e88-d1622217ba71" />
+
+
 ---
 
 

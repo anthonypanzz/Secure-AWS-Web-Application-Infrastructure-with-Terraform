@@ -229,7 +229,7 @@ ACM-provisioned SSL/TLS certificates
 
 DNS validation via Route 53
 
-Automated certificate validation using for_each
+Automated certificate validation
 
 <img width="1393" height="938" alt="Screenshot 2026-01-08 203752" src="https://github.com/user-attachments/assets/d6283b91-776a-4cfd-85e0-9ebbe2fbe999" />
 <img width="1909" height="270" alt="Screenshot 2026-01-08 211509" src="https://github.com/user-attachments/assets/a042b783-ba71-4a63-94dd-068f994d22b2" />
